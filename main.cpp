@@ -29,32 +29,16 @@ using namespace std;
 using ll = long long;
 
 int main() {
-    int H, W;
-    cin >> H >> W;
-    vector<vector<int>> N(H,vector<int>(W)),ans(H,vector<int>(W));
-    vector<int> h(H), w(W);
-    rep(i,H){
-        rep(j,W){
-            cin >> N[i][j];
-            h[i]+=N[i][j];
-            w[j]+=N[i][j];
-            }
-        }
-
+    int N, K;
+    cin >> N >> K;
+    vector<int> A(N),B(N);
+    rep(i,N) A[i];
+    rep(i,N) B[i];
     
-    
-    rep(i,H){
-        rep(j,W) {
-            ans[i][j] = h[i] + w[j] - N[i][j];
-        }
-    }
-    
-    rep(i,H){
-        rep(j,W) {
-            cout << ans[i][j] << " " ;
-        }
-        cout << endl;
-    }
+    int k_chai = 0;
+    rep(i,N) k_chai += A[i] - B[i];
+    if(k_chai == K || (K - k_chai) % 2 == 0) cout << "YES" << endl;
+    else cout << "NO" << endl;
     
     return 0;
 }
